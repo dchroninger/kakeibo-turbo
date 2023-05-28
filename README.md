@@ -1,6 +1,7 @@
 # Kakeibo Budgeting Tool
 
-This project is to go through the entire software design and implementation process for a tool I would find useful. This is mostly a personal fun project, with specific features in mind.
+This project is to go through the entire SLDC for a tool I would find useful. My goal is to go through design, development, deployment, and back again.
+Kakeibo Budget is mostly a personal passion project, with specific features in mind.
 
 ## What's Inside?
 
@@ -26,7 +27,7 @@ pnpm build
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
+cd kakeibo-turbo
 pnpm dev
 ```
 
