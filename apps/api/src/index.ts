@@ -2,20 +2,16 @@
 import cors from 'cors'
 import express from 'express'
 
-import { Workspace } from 'types'
+import v1Router from './routes/v1'
 
 const app = express()
 const port = 3001
 
+// Middleware
 app.use(cors({ origin: 'http://localhost:3000' }))
+app.use(express.json())
 
-app.get('/workspaces', (_, response) => {
-  const workspaces: Workspace[] = [
-    { name: 'api', version: '1.0.0' },
-    { name: 'types', version: '1.0.0' },
-    { name: 'web', version: '1.0.0' },
-  ]
-  response.json({ data: workspaces })
-})
+// Routes
+app.use('/v1', v1Router)
 
 app.listen(port, () => console.log(`Listening on http://localhost:${port}`))
