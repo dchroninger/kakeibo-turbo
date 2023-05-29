@@ -1,18 +1,50 @@
 {
+  "name": "kakeibo-turbo",
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "dev": "turbo run dev --no-daemon",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "clean": "turbo run clean",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "commit": "git-cz",
+    "storybook": "turbo run storybook"
   },
   "devDependencies": {
-    "@turbo/gen": "^1.9.7",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-custom": "workspace:*",
-    "prettier": "^2.5.1",
-    "turbo": "^1.9.7"
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.11",
+    "turbo": "latest",
+    "@turbo/gen": "^1.9.7"
   },
   "packageManager": "pnpm@7.15.0",
-  "name": "kakeibo-turbo"
+  "lint-staged": {
+    "apps/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "apps/**/*.{md,json}": [
+      "prettier --write"
+    ],
+    "packages/ui/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "packages/ui/**/*.{md,json}": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
