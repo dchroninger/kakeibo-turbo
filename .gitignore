@@ -11,8 +11,10 @@ coverage
 # next.js
 .next/
 out/
-build
-*/dist/*
+build/
+dist/
+
+./packages/ui/dist/
 
 # misc
 .DS_Store
