@@ -1,0 +1,21 @@
+#!/bin/sh
+if ! head -1 "$1" | grep -qE "^(feat|fix|ci|chore|docs|test|style|refactor|perf|build|revert)(\(.+?\))?: .{1,}$"; then
+    echo "Aborting commit. Your commit message is invalid." >&2
+    exit 1
+fi
+if ! head -1 "$1" | grep -qE "^.{1,88}$"; then
+    echo "Aborting commit. Your commit message is too long." >&2
+    exit 1
+fi
+
+# get current branch
+#branchName=`git rev-parse --abbrev-ref HEAD`
+
+# search jira issue id in a pattern such a "feature/ABC-123-description"
+#jiraId=$(echo $branchName | sed -nr 's,[a-z]+/([A-Z]+-[0-9]+)-.+,\1,p')
+
+# only prepare commit message if pattern matched and jiraId was found
+# if [[ ! -z $jiraId ]]; then
+ # $1 is the name of the file containing the commit message
+# sed -i.bak -e "1s/^/\n\n$jiraId\n/" $1
+# fii

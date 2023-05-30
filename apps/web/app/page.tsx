@@ -1,10 +1,9 @@
-import { Button, Header } from "ui";
-
+"use client";
 export default function Page() {
   return (
     <>
-      <Header text="Web" />
-      <Button />
+      <h1>Web</h1>
+      <button onClick={() => alert("boop")}>Boop</button>
     </>
   );
 }
